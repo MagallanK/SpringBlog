@@ -10,6 +10,20 @@ import java.util.ArrayList;
 @Controller
 public class PostController {
 
+//    JPA exercise
+        private final postRepository postDao;
+
+        public PostController(postRepository postDao){
+            this.postDao = postDao;
+        }
+
+        @PostMapping("/posts")
+        public String postsIndex(Model model){
+            model.addAttribute("posts", postDao.findAll());
+            return "posts";
+        }
+//JPA exercise end
+
     @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
     @ResponseBody
     public String createPost(){
@@ -22,6 +36,8 @@ public class PostController {
         return "Create a new post!";
     }
 
+
+//    Views exercise
     @GetMapping("/posts/show")
     public String showSinglePost(Model singlePost){
         Post showSingle = new Post("This is the title", "This is the body for the single post.");
@@ -39,4 +55,5 @@ public class PostController {
         viewAll.addAttribute("posts", allPosts);
         return "posts/index";
     }
+//    Views exercise end
 }
