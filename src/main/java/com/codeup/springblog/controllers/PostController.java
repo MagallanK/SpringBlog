@@ -30,4 +30,14 @@ public class PostController {
     public String addPost(){
         return "Create a new post!";
     }
+
+    @GetMapping("/posts/show")
+    public String showPosts(){
+        return "/posts/show";
+    }
+
+    @GetMapping("/posts/index")
+    public String showAllPosts(){
+        return "/posts/index";
+    }
 }
