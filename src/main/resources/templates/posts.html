@@ -6,10 +6,23 @@
 </head>
 <body>
 
+<form>
+	<div>
+	<h1>Enter the title here</h1>
+	<input placeholder="Title" th:text="${post.setTitle()}">
+	</div>
+	<textarea th:text="${post.setBody()}">Enter the description here</textarea>
+	<button th:type="submit" th:name="submit">Submit</button>
+</form>
+
+<form>
 <div th:each="post : ${posts}">
 	<h1 th:text="${post.getTitle()}"></h1>
 	<p th:text="${post.getBody()}"></p>
+	<button th:type="submit" th:name="update" th:href="posts" th:text="${post.save()}">Update</button>
+	<button th:type="submit" th:name="delete" th:href="posts" th:text="${post.delete()}">Delete</button>
 </div>
+</form>
 
 </body>
 </html>

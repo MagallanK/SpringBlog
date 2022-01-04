@@ -2,6 +2,7 @@ package com.codeup.springblog.controllers;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -32,12 +33,14 @@ public class PostController {
     }
 
     @GetMapping("/posts/show")
-    public String showPosts(){
+    public String showSinglePost(Model singlePost){
+        Post showSingle = new Post("This is the title", "This is the body for the single post.");
+        singlePost.addAttribute("post", showSingle);
         return "/posts/show";
     }
 
     @GetMapping("/posts/index")
     public String showAllPosts(){
-        return "/posts/index";
+        return "Placeholder: Index for posts";
     }
 }

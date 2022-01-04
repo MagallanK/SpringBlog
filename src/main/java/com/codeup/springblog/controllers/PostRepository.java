@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface PostRepository extends JpaRepository {
 
-
+    Object save();
+    Object delete();
 }
