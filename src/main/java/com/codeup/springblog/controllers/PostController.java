@@ -5,20 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 @Controller
 public class PostController {
-
-    @RequestMapping(path = "/posts", method = RequestMethod.GET)
-    @ResponseBody
-    public String mainPage(){
-        return "This is the index page";
-    }
-
-    @RequestMapping(path = "/posts/{id}", method = RequestMethod.GET)
-    @ResponseBody
-    public String userPage(@PathVariable int id){
-        return "This is user " + id + "'s profile page";
-    }
 
     @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
     @ResponseBody
@@ -39,8 +29,14 @@ public class PostController {
         return "/posts/show";
     }
 
-    @GetMapping("/posts/index")
-    public String showAllPosts(){
-        return "Placeholder: Index for posts";
+    @GetMapping("/posts")
+    public String showAllPosts(Model viewAll){
+        Post newPost1 = new Post("First title", "body for first title");
+        Post newPost2 = new Post("Second title", "body for second title");
+        ArrayList<Post> allPosts = new ArrayList<>();
+        allPosts.add(newPost1);
+        allPosts.add(newPost2);
+        viewAll.addAttribute("posts", allPosts);
+        return "posts/index";
     }
 }

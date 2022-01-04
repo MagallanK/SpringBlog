@@ -6,7 +6,12 @@
 </head>
 <body>
 
-<h1>Show all Posts</h1>
+<h1>Showing all Posts</h1>
+
+<div th:each="post : ${posts}">
+	<h3 th:text="${post.title}"></h3>
+	<p th:text="${post.title}"></p>
+</div>
 
 </body>
 </html>
