@@ -15,7 +15,7 @@ public class PostsController {
 
     @GetMapping("/posts")
     public String postsIndex(Model model){
-        model.addAttribute("cars", postDao.findAll());
+        model.addAttribute("posts", postDao.findAll());
 
         return "posts";
 
