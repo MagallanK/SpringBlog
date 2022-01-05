@@ -8,6 +8,15 @@
 
 <h1>Showing all Posts</h1>
 
+<!--<form th:each="post : ${posts}">-->
+<!--	<div>-->
+<!--		<h1>Enter the title here</h1>-->
+<!--		<input placeholder="Title" th:text="${post.setTitle()}">-->
+<!--	</div>-->
+<!--	<textarea th:text="${post.setBody()}">Enter the description here</textarea>-->
+<!--	<button th:type="submit" th:name="submit">Submit</button>-->
+<!--</form>-->
+
 <div th:each="post : ${posts}">
 	<h3 th:text="${post.title}"></h3>
 	<p th:text="${post.title}"></p>

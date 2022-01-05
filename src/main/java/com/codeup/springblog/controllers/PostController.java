@@ -17,9 +17,16 @@ public class PostController {
             this.postDao = postDao;
         }
 
+//        @GetMapping("/posts")
+//        public String postsIndex(){
+//            return "posts";
+//        }
+
         @PostMapping("/posts")
         public String postsIndex(Model model){
-            model.addAttribute("posts", postDao.findAll());
+            model.addAttribute("posts", postDao.findAllBy());
+//            model.addAttribute("update", postDao.saveAll());
+//            model.addAttribute("delete", postDao.delete());
             return "posts";
         }
 //JPA exercise end
