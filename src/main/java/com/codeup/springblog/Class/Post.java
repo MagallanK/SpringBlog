@@ -1,4 +1,4 @@
-package com.codeup.springblog.controllers.Class;
+package com.codeup.springblog.Class;
 
 import javax.persistence.*;
 
