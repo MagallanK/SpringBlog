@@ -1,6 +1,8 @@
 package com.codeup.springblog.controllers;
 
 
+import com.codeup.springblog.controllers.Class.Post;
+import com.codeup.springblog.controllers.Repositories.postRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -92,15 +94,15 @@ public class PostController {
         return "/posts/show";
     }
 //
-//    @GetMapping("/posts")
-//    public String showAllPosts(Model viewAll){
-//        Post newPost1 = new Post("First title", "body for first title");
-//        Post newPost2 = new Post("Second title", "body for second title");
-//        ArrayList<Post> allPosts = new ArrayList<>();
-//        allPosts.add(newPost1);
-//        allPosts.add(newPost2);
-//        viewAll.addAttribute("posts", allPosts);
-//        return "posts/index";
-//    }
+    @GetMapping("/posts")
+    public String showAllPosts(Model viewAll){
+        Post newPost1 = new Post("First title", "body for first title");
+        Post newPost2 = new Post("Second title", "body for second title");
+        ArrayList<Post> allPosts = new ArrayList<>();
+        allPosts.add(newPost1);
+        allPosts.add(newPost2);
+        viewAll.addAttribute("posts", allPosts);
+        return "posts/index";
+    }
 //    Views exercise end
 }
