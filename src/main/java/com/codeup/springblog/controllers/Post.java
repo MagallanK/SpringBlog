@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "posts")
 public class Post {
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10000)
     private String body;
 
     @Column(nullable = false, length = 50)
@@ -14,7 +14,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     public Post() {
     }

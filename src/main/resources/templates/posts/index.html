@@ -8,6 +8,18 @@
 
 <h1>Showing all Posts</h1>
 
+<div th:each="post : ${allPosts}">
+	<span th:text="${post.getTitle()}"></span>
+	<p th:text="${post.getBody()}"></p>
+</div>
+
+<form th:action="'/posts/edit/' + ${post.getId()}" method="get">
+<button>Edit</button>
+</form>
+
+<form th:action="'/posts/delete/' + ${post.getId()}" method="post">
+<button>Delete</button>
+</form>
 <!--<form th:each="post : ${posts}">-->
 <!--	<div>-->
 <!--		<h1>Enter the title here</h1>-->
@@ -17,10 +29,10 @@
 <!--	<button th:type="submit" th:name="submit">Submit</button>-->
 <!--</form>-->
 
-<div th:each="post : ${posts}">
-	<h3 th:text="${post.title}"></h3>
-	<p th:text="${post.title}"></p>
-</div>
+<!--<div th:each="post : ${posts}">-->
+<!--	<h3 th:text="${post.title}"></h3>-->
+<!--	<p th:text="${post.title}"></p>-->
+<!--</div>-->
 
 </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Edit Page</title>
+</head>
+<body>
+
+<h1>Edit Page</h1>
+<form action="/posts/edit" method="post">
+	<label name="postTitle">Title of Post</label>
+	<input th:value="${postToEdit.getTitle()}" name="postTitle"> Hold info about post title
+
+	<label name="postBody"></label>
+	<input th:value="${postToEdit.getBody()}" name="postBody"> hold info about post body
+
+	<input type="hidden" th:value="${postToEdit.getId()}">
+	<button>Submit edit</button>
+</form>
+
+<!--<div th:each="post : ${allPosts}">-->
+<!--	<span th:text="${post.getTitle()}"></span>-->
+<!--	<p th:text="${post.getBody()}"></p>-->
+<!--</div>-->
+
+<!--<form>-->
+<!--	<div>-->
+<!--	<h1>Enter the title here</h1>-->
+<!--	<input placeholder="Title" th:text="${post.setTitle()}">-->
+<!--	</div>-->
+<!--	<textarea th:text="${post.setBody()}">Enter the description here</textarea>-->
+<!--	<button th:type="submit" th:name="submit">Submit</button>-->
+<!--</form>-->
+
+<!--<form>-->
+<!--<div th:each="post : ${posts}">-->
+<!--	<h1 th:text="${post.getTitle()}"></h1>-->
+<!--	<p th:text="${post.getBody()}"></p>-->
+<!--	<button th:type="submit" th:name="update" th:href="posts" th:text="${post.saveAll()}">Update</button>-->
+<!--	<button th:type="submit" th:name="delete" th:href="posts" th:text="${post.delete()}">Delete</button>-->
+<!--</div>-->
+<!--</form>-->
+
+</body>
+</html>
