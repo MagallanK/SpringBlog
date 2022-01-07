@@ -11,6 +11,7 @@
 <div th:each="post : ${allPosts}">
 	<span th:text="${post.getTitle()}"></span>
 	<p th:text="${post.getBody()}"></p>
+	<span th:text="${post.getUser().getEmail()}"></span>
 </div>
 
 <form th:action="'/posts/edit/' + ${post.getId()}" method="get">
