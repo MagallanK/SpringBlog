@@ -15,6 +15,7 @@
 	<input th:value="${postToEdit.getBody()}" name="postBody"> hold info about post body
 
 	<input type="hidden" th:value="${postToEdit.getId()}">
+	<input type="hidden" th:value="${userPost.getById()}">
 	<button>Submit edit</button>
 </form>
 
