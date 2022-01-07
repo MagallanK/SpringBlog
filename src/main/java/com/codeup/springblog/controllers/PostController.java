@@ -38,7 +38,7 @@ public class PostController {
 
 //    JPA exercise review
 
-    @GetMapping("/posts/index")
+    @GetMapping("/posts")
     public String indexPosts(Model model) {
         model.addAttribute("allPosts", postDao.findAll());
         return "posts/index";
@@ -76,17 +76,17 @@ public class PostController {
 
 // JPA exercise review end
 
-    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
-    @ResponseBody
-    public String createPost() {
-        return "View the form for creating a post!";
-    }
-
-    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
-    @ResponseBody
-    public String addPost() {
-        return "Create a new post!";
-    }
+//    @RequestMapping(path = "/posts/create", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String createPost() {
+//        return "View the form for creating a post!";
+//    }
+//
+//    @RequestMapping(path = "/posts/create", method = RequestMethod.POST)
+//    @ResponseBody
+//    public String addPost() {
+//        return "Create a new post!";
+//    }
 
 
     //    Views exercise
@@ -97,21 +97,21 @@ public class PostController {
 //        return "/posts/show";
 //    }
 
-    @GetMapping("/posts")
-    public String showAllPosts(Model viewAll) {
-        Post newPost1 = new Post("First title", "body for first title");
-        Post newPost2 = new Post("Second title", "body for second title");
-        ArrayList<Post> allPosts = new ArrayList<>();
-        allPosts.add(newPost1);
-        allPosts.add(newPost2);
-        viewAll.addAttribute("posts", allPosts);
-        return "posts/index";
-    }
+//    @GetMapping("/posts")
+//    public String showAllPosts(Model viewAll) {
+//        Post newPost1 = new Post("First title", "body for first title");
+//        Post newPost2 = new Post("Second title", "body for second title");
+//        ArrayList<Post> allPosts = new ArrayList<>();
+//        allPosts.add(newPost1);
+//        allPosts.add(newPost2);
+//        viewAll.addAttribute("posts", allPosts);
+//        return "posts/index";
+//    }
 //    Views exercise end
 
 
 //    Relationships Exercise
-    @GetMapping("/posts")
+    @GetMapping("/posts/show")
     public String userPost(Model model, @PathVariable Long postId){
         Post userPost = postDao.getById(postId);
         model.addAttribute("post", userPost);
