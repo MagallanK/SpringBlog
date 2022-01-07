@@ -4,6 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "posts")
+
 public class Post {
 
     @Column(nullable = false, length = 10000)
@@ -14,7 +15,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -40,7 +41,7 @@ public class Post {
         this.body = body;
     }
 
-    public Post(String body, String title, long id) {
+    public Post(String body, String title, Long id) {
         this.body = body;
         this.title = title;
         this.id = id;
@@ -62,7 +63,7 @@ public class Post {
         this.title = title;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

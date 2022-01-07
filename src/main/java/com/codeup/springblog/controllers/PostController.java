@@ -45,7 +45,7 @@ public class PostController {
     }
 
     @PostMapping("/posts/delete/{id}")
-    public String deletePost(@PathVariable long id) {
+    public String deletePost(@PathVariable Long id) {
 
         long deletePostId = id;
 
@@ -55,7 +55,7 @@ public class PostController {
     }
 
     @GetMapping("/posts/edit/{id}")
-    public String editPost(@PathVariable long id, Model model) {
+    public String editPost(@PathVariable Long id, Model model) {
         Post editPost = postDao.getById(id);
 
         model.addAttribute("postToEdit", editPost);
@@ -63,7 +63,7 @@ public class PostController {
     }
 
     @PostMapping("/posts/edit")
-    public String savePost(@RequestParam(name = "postTitle") String postTitle, @RequestParam(name = "postBody") String postBody, @RequestParam(name = "postId") long id) {
+    public String savePost(@RequestParam(name = "postTitle") String postTitle, @RequestParam(name = "postBody") String postBody, @RequestParam(name = "postId") Long id) {
 
         Post postToEdit = postDao.getById(id);
         postToEdit.setBody(postBody);
@@ -112,7 +112,7 @@ public class PostController {
 
 //    Relationships Exercise
     @GetMapping("/posts")
-    public String userPost(Model model, @PathVariable long postId){
+    public String userPost(Model model, @PathVariable Long postId){
         Post userPost = postDao.getById(postId);
         model.addAttribute("post", userPost);
         model.addAttribute("user", userPost.getUser());

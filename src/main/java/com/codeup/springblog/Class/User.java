@@ -6,11 +6,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
+
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(nullable = false, length = 50)
     private String username;
@@ -29,7 +30,7 @@ public class User {
 
     }
 
-    public User(long id, String username, String email, String password) {
+    public User(Long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -46,7 +47,7 @@ public class User {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
