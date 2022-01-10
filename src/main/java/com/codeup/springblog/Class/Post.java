@@ -70,4 +70,8 @@ public class Post {
     public long getId() {
         return id;
     }
+
+    public User getOwner() {
+        return user;
+    }
 }

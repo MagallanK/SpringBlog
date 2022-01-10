@@ -1,7 +1,7 @@
 package com.codeup.springblog.controllers;
 
-
 import com.codeup.springblog.Class.Post;
+import com.codeup.springblog.EmailService;
 import com.codeup.springblog.Repositories.UserRepository;
 import com.codeup.springblog.Repositories.postRepository;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,12 @@ public class PostController {
 
     private final postRepository postDao;
     private final UserRepository userDao;
+    private final EmailService emailService;
 
-    public PostController(postRepository postDao, UserRepository userDao) {
+    public PostController(postRepository postDao, UserRepository userDao, EmailService emailService) {
         this.postDao = postDao;
         this.userDao = userDao;
+        this.emailService = emailService;
     }
 
     @GetMapping("/posts")
@@ -62,6 +64,7 @@ public class PostController {
     @PostMapping("/posts/create")
     public String createPost(@ModelAttribute Post post) {
         post.setUser(userDao.getById(1L));
+        emailService.prepareAndSend(post, "Your post has been created", "Congratulations on creating your post!");
         postDao.save(post);
         return "redirect:/posts";
     }
